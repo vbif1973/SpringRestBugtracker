@@ -1,0 +1,57 @@
+DROP TABLE ISSUE;
+
+DROP TABLE EMPLOYEE;
+
+DROP SEQUENCE ISSUE_SEQ ;
+
+DROP SEQUENCE EMPLOYEE_SEQ;
+
+CREATE TABLE EMPLOYEE (emp_id NUMBER PRIMARY KEY,
+                        emp_name VARCHAR2(200));
+                        
+CREATE TABLE ISSUE(issue_id NUMBER PRIMARY KEY,
+                    description VARCHAR2(200),
+                    urgency NUMBER,
+                    assigned_to NUMBER REFERENCES EMPLOYEE(EMP_ID));
+                    
+CREATE SEQUENCE EMPLOYEE_SEQ  
+  MINVALUE 4
+  MAXVALUE 999999999999999999999999999
+  START WITH 4
+  INCREMENT BY 1;
+  
+CREATE SEQUENCE ISSUE_SEQ  
+  MINVALUE 6
+  MAXVALUE 999999999999999999999999999
+  START WITH 6
+  INCREMENT BY 1;  
+
+                        
+INSERT INTO  EMPLOYEE
+VALUES (1, 'Петя');
+
+INSERT INTO  EMPLOYEE
+VALUES (2, 'Вася');
+
+INSERT INTO  EMPLOYEE
+VALUES (3, 'Эммануэль');
+
+COMMIT;
+
+INSERT INTO ISSUE
+VALUES (1, 'Не работает сканер', 1, 1);
+
+INSERT INTO ISSUE
+VALUES (2, 'Не работает принтер', 2, 2);
+
+INSERT INTO ISSUE
+VALUES (3, 'Не работает плоттер', 2, 2);
+
+INSERT INTO ISSUE
+VALUES (4, 'Не работает шреддер', 3, 3);
+
+INSERT INTO ISSUE
+VALUES (5, 'Не работает ничего', 4, null);
+
+COMMIT;
+
