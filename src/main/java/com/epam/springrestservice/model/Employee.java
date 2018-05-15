@@ -21,7 +21,7 @@ public class Employee implements Serializable {
 
     @Id
     @Column(name = "emp_id", nullable = false)
-    @GeneratedValue(strategy=GenerationType.AUTO, generator="EMPLOYEE_SEQ")
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="EMPLOYEE_SEQ")
     @SequenceGenerator(name="EMPLOYEE_SEQ", sequenceName="EMPLOYEE_SEQ", initialValue=4)
     public Integer getEmp_id() {
         return emp_id;

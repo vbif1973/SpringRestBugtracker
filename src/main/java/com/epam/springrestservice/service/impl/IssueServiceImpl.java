@@ -39,7 +39,7 @@ public class IssueServiceImpl implements IssueService {
     }
 
     @Transactional
-    public AssignedToEmployee assignToEmployee(Integer issueId, Integer empId){
-        return issueDAO.assignToEmployee(issueId, empId);
+    public Issue updateIssue(Integer issueId, String description, Integer urgency, Integer assignedTo){
+        return issueDAO.updateIssue(issueId, description, urgency, assignedTo);
     }
 }

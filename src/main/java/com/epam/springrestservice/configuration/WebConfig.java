@@ -1,6 +1,8 @@
 package com.epam.springrestservice.configuration;
 
 import com.epam.springrestservice.dto.AssignedToEmployee;
+import com.epam.springrestservice.dto.EmployeeDTO;
+import com.epam.springrestservice.dto.IssueDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.*;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
@@ -94,5 +96,20 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         AssignedToEmployee assignedToEmployee = new AssignedToEmployee();
         return assignedToEmployee;
     }
+
+    @Bean(name = "employeeDTO")
+    @Scope("prototype")
+    public EmployeeDTO getEmployeeDTO() {
+        EmployeeDTO employeeDTO = new EmployeeDTO();
+        return employeeDTO;
+    }
+
+    @Bean(name = "issueDTO")
+    @Scope("prototype")
+    public IssueDTO getIssueDTO() {
+        IssueDTO issueDTO = new IssueDTO();
+        return issueDTO;
+    }
+
 
 }

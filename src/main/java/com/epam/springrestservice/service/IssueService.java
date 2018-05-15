@@ -15,5 +15,5 @@ public interface IssueService {
 
     Issue addIssue(String description, Integer urgency);
 
-    AssignedToEmployee assignToEmployee(Integer issueId, Integer empId);
+    Issue updateIssue(Integer issueId, String description, Integer urgency, Integer assignedTo);
 }

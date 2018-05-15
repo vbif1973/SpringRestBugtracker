@@ -35,6 +35,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         return employeeDAO.addEmployee(name);
     }
 
+
     @Transactional
     public Employee updateEmployee(Integer empId, String name) {
         return employeeDAO.updateEmployee(empId, name);

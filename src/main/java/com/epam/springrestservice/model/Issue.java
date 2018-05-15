@@ -20,7 +20,7 @@ public class Issue implements Serializable {
 
     @Id
     @Column(name = "issue_id", nullable = false)
-    @GeneratedValue(strategy=GenerationType.AUTO, generator="ISSUE_SEQ")
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="ISSUE_SEQ")
     @SequenceGenerator(name="ISSUE_SEQ", sequenceName="ISSUE_SEQ", initialValue=6)
     public Integer getIssue_id() {
         return issue_id;

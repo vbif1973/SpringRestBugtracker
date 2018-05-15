@@ -44,11 +44,13 @@ public class IssueDAOImpl extends AbstractDao<Integer, Issue> implements IssueDA
         return getByKey(issue.getIssue_id());
     }
 
-    public AssignedToEmployee assignToEmployee(Integer issueId, Integer empId) {
+    public Issue updateIssue(Integer issueId, String description, Integer urgency, Integer assignedTo) {
         Issue issue = getByKey(issueId);
-        Employee employee = getSession().get(Employee.class, empId);
+        Employee employee = getSession().get(Employee.class, assignedTo);
+        issue.setDescription(description);
+        issue.setUrgency(urgency);
         issue.setEmployee(employee);
-        assignedToEmployee.setMessage("Issue "+issueId+" assigned to employee "+employee.getEmp_name());
-        return assignedToEmployee;
+        //assignedToEmployee.setMessage("Issue "+issueId+" assigned to employee "+employee.getEmp_name());
+        return issue;
     }
 }
